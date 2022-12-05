@@ -1,3 +1,4 @@
+# a.levchenko@stankin.ru
 import requests
 import re
 
@@ -13,6 +14,10 @@ class Link:
         self.url = requests.get(self.url).text
         self.links = re.findall(
             r'\w+:\/\/[\w.-]+(?::?\d{1,5})?[-\w.\/?=&%]*', self.url)
+        # \/\/ - //
+        # (\d{1,5}) цифра которая повторяется от 1 до 5 раз
+        # ?: групирующая скобка
+        # [-\w.\/?=&%]* перечисление символов 
         print('\n Результат: ')
 
     def writing_to_a_file(self):
